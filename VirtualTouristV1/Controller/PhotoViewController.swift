@@ -75,6 +75,8 @@ class PhotoViewController: UIViewController,MKMapViewDelegate,UICollectionViewDe
         }
     }
     
+    // Load images from CoreData
+    
     func loadPhotosFromDatabase() -> [Photo]{
         var photos = [Photo]()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
@@ -132,15 +134,12 @@ class PhotoViewController: UIViewController,MKMapViewDelegate,UICollectionViewDe
         for index in ((0 + 1)...array.count - 1).reversed()
         {
             let j = Int(arc4random_uniform(UInt32(index-1)))
-            //      swap(&array[index], &array[j])
             array.swapAt(index, j)
             
             
         }
         return array
     }
-    
-    
 }
 extension PhotoViewController {
     func executeSearch() {
@@ -165,6 +164,9 @@ extension PhotoViewController {
         return fetchedResultsController!.sections![section].numberOfObjects
         //        return 10
     }
+    
+    
+    // Load images into collectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
