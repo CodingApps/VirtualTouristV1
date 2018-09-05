@@ -19,7 +19,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         super.viewDidLoad()
         
         let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(pressLong(_:)))
-        longPressRecogniser.minimumPressDuration = 1.0
+        longPressRecogniser.minimumPressDuration = 1.5
         mapView.addGestureRecognizer(longPressRecogniser)
         mapView.delegate = self
         loadPinsFromDatabase()
