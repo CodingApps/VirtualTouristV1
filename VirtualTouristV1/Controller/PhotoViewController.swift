@@ -178,7 +178,6 @@ extension PhotoViewController {
             cell.activityIndicator.isHidden = false
             cell.imageView.image = UIImage(named: "defaultImage")
             cell.activityIndicator.startAnimating()
-            debugPrint(photo.url)
             DispatchQueue.main.async{
                 self.flickr.downloadPhotos(photo.url!){ (image, error) in
                     photo.imageData = image
