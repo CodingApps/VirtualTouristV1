@@ -10,11 +10,15 @@ import UIKit
 
 struct Constants {
     
+    // Host info for API
+    
     struct Flickr {
         static let APIScheme = "https"
         static let APIHost = "api.flickr.com"
         static let APIPath = "/services/rest"
     }
+    
+    // Parameters for API session
     
     struct FlickrParameterKeys {
         static let Method = "method"

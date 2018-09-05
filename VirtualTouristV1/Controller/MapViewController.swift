@@ -26,6 +26,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         
     }
     
+    // Process long-presses to add pins to map
+    
     @objc func pressLong(_ gestureRecognizer: UIGestureRecognizer) {
         if gestureRecognizer.state == UIGestureRecognizerState.began{
             let point = gestureRecognizer.location(in:mapView)
@@ -44,6 +46,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         performSegue(withIdentifier: "showPhoto", sender: nil)
         mapView.deselectAnnotation(view.annotation, animated: false)
     }
+    
+    // Load current pins onto map
     
     func loadPinsFromDatabase()
     {
@@ -70,6 +74,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         }
         mapView.addAnnotations(annotations)
     }
+    
+    // Load collectionView in PhotoViewController if pin selected
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var pin: Pin!
