@@ -109,7 +109,6 @@ class PhotoViewController: UIViewController,MKMapViewDelegate,UICollectionViewDe
                     }
                     let urlIndex  =  self.shuffleArray(Array(0...(count - 1)))
                     let range = count < self.numImagestoDisplay ? count : self.numImagestoDisplay
-                    debugPrint("Range : ",range)
                     let selectedURL = Array(urlIndex.prefix(range))
                     var url = [String]()
                     for item in selectedURL{
