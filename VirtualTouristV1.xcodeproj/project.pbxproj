@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D900146E217452B300E05491 /* virtualt1.gif in Resources */ = {isa = PBXBuildFile; fileRef = D900146D217452B300E05491 /* virtualt1.gif */; };
 		D9BED4EA213F8BC0002467E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BED4E9213F8BC0002467E6 /* AppDelegate.swift */; };
 		D9BED4EF213F8BC0002467E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9BED4ED213F8BC0002467E6 /* Main.storyboard */; };
 		D9BED4F2213F8BC0002467E6 /* LocationPins.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9BED4F0213F8BC0002467E6 /* LocationPins.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D900146D217452B300E05491 /* virtualt1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = virtualt1.gif; sourceTree = "<group>"; };
 		D9BED4E6213F8BBF002467E6 /* VirtualTouristV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTouristV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BED4E9213F8BC0002467E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9BED4EE213F8BC0002467E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,10 +57,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D900146C2174528D00E05491 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				D900146D217452B300E05491 /* virtualt1.gif */,
+			);
+			path = screenshots;
+			sourceTree = "<group>";
+		};
 		D9BED4DD213F8BBF002467E6 = {
 			isa = PBXGroup;
 			children = (
 				D9BED4E8213F8BBF002467E6 /* VirtualTouristV1 */,
+				D900146C2174528D00E05491 /* screenshots */,
 				D9BED4E7213F8BBF002467E6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -177,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9BED4F7213F8BC3002467E6 /* LaunchScreen.storyboard in Resources */,
+				D900146E217452B300E05491 /* virtualt1.gif in Resources */,
 				D9BED4F4213F8BC3002467E6 /* Assets.xcassets in Resources */,
 				D9BED4EF213F8BC0002467E6 /* Main.storyboard in Resources */,
 			);

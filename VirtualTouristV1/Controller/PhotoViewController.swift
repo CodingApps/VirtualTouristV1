@@ -99,7 +99,10 @@ class PhotoViewController: UIViewController,MKMapViewDelegate,UICollectionViewDe
     
     func searchPhoto(){
         flickr.getImageURL(pin!.latitude, lon: pin!.longitude){ (data,error) in
-            if let photos = data!["photos"] as! [String:Any]? {
+            print("List of Parsed info", data)
+            if let photos = data!["photos"] as! [String:Any]?
+            {
+                print("Text for photos >>> : ", photos, "<<<")
                 if let photo = photos["photo"] as! Array<Any>?{
                     let count = photo.count
                     debugPrint("Count ", count)
@@ -115,6 +118,7 @@ class PhotoViewController: UIViewController,MKMapViewDelegate,UICollectionViewDe
                         let temp = photo[item] as! [String:Any]
                         url.append(temp["url_m"] as! String)
                         self.collectionView.updateConstraints()
+                        print("url var : ", url)
                     }
                     for item in url{
                         let photo = Photo(context: self.delegate.stack.context)

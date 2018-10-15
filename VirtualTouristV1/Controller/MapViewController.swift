@@ -15,6 +15,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,8 +24,30 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         mapView.addGestureRecognizer(longPressRecogniser)
         mapView.delegate = self
         loadPinsFromDatabase()
-        
-    }
+        print("pinsloading")
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    
+}
+
+override func viewWillAppear(_ animated: Bool) {
+    print("view will appear")
+}
+
+override func viewDidAppear(_ animated: Bool) {
+    print("view did appear")
+}
+
+// MARK: - Notification oberserver methods
+
+@objc func didBecomeActive() {
+    print("did become active")
+}
+
+@objc func willEnterForeground() {
+    print("will enter foreground")
+}
     
     // Process long-presses to add pins to map
     
