@@ -14,14 +14,14 @@ This project allows you to view pins loaded on a map from CoreData. You'll be ab
 ## Functions 
 
 * Place pins on map which will save to CoreData.
-* API controllers to Flickr image data geographically. 
+* API controllers to load Flickr image data geographically. 
 * Mapview controller to display pins. 
-
+* Storyboard with combined MapView and CollectionView.
 <br>
 
 ## Displaying images from CoreData
 
-One of the areas in the app which made alot of use of CoreData was the CollectionView. It was interesting seeing how the CollectionView could simultaneously fill and refresh 10 or more images concurrently.   
+One of the areas in the app which made alot of use of CoreData was the CollectionView. It was interesting seeing how the CollectionView could simultaneously fill and refresh more than a dozen images concurrently.   
 
 ``` swift
  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
