@@ -19,18 +19,38 @@ This project allows you to view pins loaded on a map from CoreData. You'll be ab
 
 <br>
 
-## Area of code 
+## Displaying images from CoreData
+
+One of the areas in the app which made alot of use of CoreData was the CollectionView. It was interesting seeing how the CollectionView could simultaneously fill and refresh 10 or more images concurrently.   
 
 ``` swift
-{
+ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        cell.activityIndicator.isHidden = true
+        cell.imageView.image = nil
+        let photo = fetchedResultsController?.object(at: indexPath) as! Photo
+        if photo.imageData == nil{
+            cell.activityIndicator.isHidden = false
+            cell.imageView.image = UIImage(named: "defaultImage")
+            cell.activityIndicator.startAnimating()
+            DispatchQueue.main.async{
+                self.flickr.downloadPhotos(photo.url!){ (image, error) in
+                    photo.imageData = image
+                    cell.imageView.image = UIImage(data: image as! Data)
+                    cell.activityIndicator.isHidden = true
+                }
+            }
+        }else{
+            cell.imageView.image = UIImage(data: photo.imageData as! Data)
+        }
+        return cell
+    }
 ```
 <br>
 
 ## Article Tips
 
 Some good articles for tips : <br>
-* <a href="https://www.techrepublic.com/blog/software-engineer/create-your-own-web-service-for-an-ios-app-part-one/" target="_blank">Create your own web service for an iOS app - Part One</a> <br>
-* <a href="https://www.hackingwithswift.com/example-code/location/how-to-add-annotations-to-mkmapview-using-mkpointannotation-and-mkpinannotationview" target="_blank">How to add annotations to MKMapView</a> <br>
 * <a href="https://www.yudiz.com/working-with-unwind-segues-in-swift" target="_blank">Working with Segue unwinds in Swift</a><br>
 * <a href="https://blog.supereasyapps.com/30-auto-layout-best-practices/#layout-ui-for-one-iphone" target="_blank">30 Auto Layout Best Practices</a>
